@@ -219,7 +219,7 @@ class MainPurchaser
         $this->driver->findElement(WebDriverBy::cssSelector('.btnSubmit'))->click();
 
         $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::id('amount')));
-        $this->driver->findElement(WebDriverBy::id('amount'))->sendKeys($this->depositAmount);
+        $this->driver->findElement(WebDriverBy::id('amount'))->sendKeys(floor($this->depositAmount / 100 / count($forecasts)) * count($forecasts));
 
         $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::id('pass')));
         $this->driver->findElement(WebDriverBy::id('pass'))->sendKeys($this->purchasePassword);
