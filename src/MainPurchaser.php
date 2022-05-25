@@ -235,11 +235,11 @@ class MainPurchaser
         $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('.btnSubmit')));
         $this->driver->findElement(WebDriverBy::cssSelector('.btnSubmit'))->click();
 
-        $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::id('amount')));
-        $this->driver->findElement(WebDriverBy::id('amount'))->sendKeys(floor($this->depositAmount / count($forecasts) / 100) * 100 * count($forecasts));
+        $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::name('betAmount')));
+        $this->driver->findElement(WebDriverBy::name('betAmount'))->sendKeys(floor($this->depositAmount / count($forecasts) / 100) * 100 * count($forecasts));
 
-        $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::id('pass')));
-        $this->driver->findElement(WebDriverBy::id('pass'))->sendKeys($this->purchasePassword);
+        $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::name('betPassword')));
+        $this->driver->findElement(WebDriverBy::name('betPassword'))->sendKeys($this->purchasePassword);
 
         $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::id('submitBet')));
         $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::id('submitBet')));
