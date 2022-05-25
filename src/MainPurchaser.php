@@ -249,6 +249,8 @@ class MainPurchaser
         $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::id('ok')));
         $this->driver->findElement(WebDriverBy::id('ok'))->click();
 
+        $this->driver->wait(10, 500)->until(WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::id('thanksArea')));
+
         foreach ($handles as $handle) {
             $this->driver->switchTo()->window($handle);
             $this->driver->close();
